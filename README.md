@@ -39,21 +39,19 @@ Built and published by **[Oğuz Tonyalı](https://github.com/Zodomik)**. This re
 | Local state | Codable, UserDefaults | Saved mixes, routines, preferences and sleep logs. |
 | Purchases | RevenueCat | Premium entitlement, localized offerings and restore flow. |
 
-## Engineering highlights
+## Implementation notes
 
-### Audio that outlives the screen
+SwiftUI audio app; AVAudioPlayer layers; Codable/UserDefaults persistence; offline Python/NumPy asset generation.
 
-The audio manager owns playback independently of visible views. Background audio configuration, interruption handling and remote controls support the locked-screen listening flow.
+- FFT-shaped colored noise and crossfaded loop preparation.
+- Independent sound layers with master volume and timed fade control.
+- A global sleep deadline can cancel routine scheduling without starting another step.
 
-### A mix as reusable data
-
-A saved mix describes selected sounds and their levels. Keeping that model separate from playback lets the same combination be recalled from favorites and bedtime routines.
-
-### Offline content delivery
-
-Bundled audio makes the listening experience available after installation without an account or content download. The app keeps routine and preference state locally.
-
-→ **[Explore the architecture and design decisions](docs/ENGINEERING.md)**
+| Read more | What is covered |
+| --- | --- |
+| [Architecture and frameworks](docs/ENGINEERING.md) | Runtime components, backend structure and framework responsibilities |
+| [Database and local data](docs/DATA_MODEL.md) | Entities, relationships, constraints and persistence choices |
+| [Algorithms and implementation choices](docs/ALGORITHMS.md) | Calculations, example flows and the limits of each approach |
 
 ## Try the product
 
